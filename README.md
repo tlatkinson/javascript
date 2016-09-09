@@ -4,6 +4,7 @@
 
 ## Table of Contents
 
+  1. ~~[Types] (#types)~~
   1. [References](#references)
   1. [Objects](#objects)
   1. [Arrays](#arrays)
