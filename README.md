@@ -2421,6 +2421,52 @@
     $sidebar.find('ul').hide();
     ```
 
+  <a name="jquery--js-"></a><a name="25.5"></a>
+  - [25.5](#jquery--js-) All selectors should be prefixed with "js-" to avoid conflicts with CSS classes and third party selectors
+
+    ```javascript
+    // bad
+    $('.sidebar').hide();
+
+    // bad
+    $('#sidebar').hide();
+
+    // good
+    $('.js-sidebar').hide();
+
+    // good
+    $('#js-sidebar').hide();
+    ```
+
+  <a name="jquery--loop-selection"></a><a name="25.6"></a>
+  - [25.6](#jquery--loop-selection) Never have a jQuery selector in a loop. Instead build a selector to get all of your results.
+
+    ```javascript
+    // bad
+    for(let i = 0; i < 10; i++) {
+        $('#tr-' + i);
+    }
+
+    // good
+    $('table').find('tr').each(function () {});
+    ```
+    
+  <a name="jquery--loop-dom-update"></a><a name="25.7"></a>
+  - [25.7](#jquery--loop-dom-update) Never update the DOM in a loop. Instead build an object in memory and append all at once.
+
+    ```javascript
+    // bad
+    for(let i = 0; i < 10; i++) {
+        $table.append('<tr></tr>');
+    }
+
+    // good
+    let rows = '';
+    for(let i = 0; i < 10; i++) {
+        rows += '<tr></tr>';
+    }
+    $table.append(rows);
+    ```
 **[⬆ back to top](#table-of-contents)**
 
 ## ECMAScript 6 Styles
